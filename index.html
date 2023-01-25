@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Boolzapp</title>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
         <main>
@@ -15,29 +19,62 @@
                 <div class="left-side">
                     <!-- user profile -->
                     <div class="user-profile">
-                        <div class="user-info"> AVATAR</div>
-                        <div class="user-setting">BUTTONS</div>
+                        <div class="user-photo">
+                            <img src="img/avatar_1.jpg" alt="avatar_1">
+                        </div>
+                        <div class="user-name">Michele</div>
+                        <div class="user-setting">
+                            <i class="fa-solid fa-circle-notch fa-lg"></i>
+                            <i class="fa-solid fa-message fa-lg"></i>
+                            <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                        </div>
                     </div>
                     <!-- notification status -->
-                    <div class="notification-status">NOTIFICATION STATUS</div>
+                    <div class="notification-status">
+                        <div class="push-notification-icon">
+                            <i class="fa-solid fa-bell-slash fa-xl"></i>
+                        </div>
+                        <div class="push-notification-text">
+                            <h4>
+                                Ricevi notifiche di nuovi messaggi
+                            </h4>
+                            <span>
+                                attiva notifiche desktop
+                            </span>
+                        </div>
+                    </div>
                     <!-- contact serach -->
-                    <div class="contact-search">CONTACT SEARCH</div>
+                    <div class="contact-search">
+                        <div class="input-glass">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <input class="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
                     <!-- contact list -->
                     <div class="contact-list">
                         <div class="contact">
-                            <div class="avatar">AVATAR</div>
-                            <div class="contact-name">CONTACT NAME</div>
-                            <div class="last-access">LAST ACCESS</div>
+                            <div class="avatar">
+                                <img src="img/avatar_1.jpg" alt="avatar_1">
+                            </div>
+                            <div class="contact-name">
+                                <h4>Michele</h4>
+                                <span>Ultimo messaggio inviato</span>
+                            </div>
+                            <div class="last-access">12.00</div>
                         </div>
                         <div class="contact">
-                            <div class="avatar">AVATAR</div>
-                            <div class="contact-name">CONTACT NAME</div>
-                            <div class="last-access">LAST ACCESS</div>
+                            <div class="avatar">
+                                <img src="img/avatar_2.jpg" alt="avatar_2">
+                            </div>
+                            <div class="contact-name"></div>
+                            <div class="last-access"></div>
                         </div>
                         <div class="contact">
-                            <div class="avatar">AVATAR</div>
-                            <div class="contact-name">CONTACT NAME</div>
-                            <div class="last-access">LAST ACCESS</div>
+                            <div class="avatar">
+                                <img src="img/avatar_3.jpg" alt="avatar_3">
+                            </div>
+                            <div class="contact-name"></div>
+                            <div class="last-access"></div>
                         </div>
                     </div>
                 </div>
@@ -45,23 +82,51 @@
                 <!-- right-side of the APP -->
                 <div class="right-side">
                     <div class="contact-profile">
-                        <div class="avatar-right-side">AVATAR</div>
-                        <div class="contact-info-right-side">CONTACT INFO</div>
-                        <div class="contact-setting"> SETTING BUTTONS</div>
+                        <div class="active-contact-photo">
+                            <img src="img/avatar_2.jpg" alt="avatar_2">
+                        </div>
+                        <div class="active-contact-info">
+                            <h4>
+                                Michele
+                            </h4>
+                            <span>
+                                Ultimo aggriornamento alle 12:00
+                            </span>
+                        </div>
+                        <div class="contact-setting">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
+                        </div>
                     </div>
 
                     <!-- Chat section -->
                     <div class="chat">
-                        <div class="message sent">SENT MESSAGE</div>
-                        <div class="message sent">SENT MESSAGE</div>
-                        <div class="message received">RECEIVED MESSAGE</div>
+                        <div class="message sent">
+                            <div class="message-content">Hai portato a spasso il cane?</div>
+                            <div class="message-time">15:30</div>
+                        </div>
+                        <div class="message sent">
+                            <div class="message-content">Ricordati di stendere i panni</div>
+                            <div class="message-time">15:50</div>
+                        </div>
+                        <div class="message received">
+                            <div class="message-content">Tutto fatto!</div>
+                            <div class="message-time">16:15</div>
+                        </div>
                     </div>
 
                     <!-- new-message section -->
                     <div class="new-message">
-                        <div class="emoji">EMOJI</div>
-                        <div class="message-input">MESSAGE INPUT</div>
-                        <div class="send-message">SEND-MESSAGE</div>
+                        <div class="emoji">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+                        <div class="message-input">
+                            <input class="new-message-input" type="text" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="send-message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
                     </div>
                 </div>
             </div>
