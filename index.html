@@ -53,23 +53,26 @@
                                 <div class="input-glass">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
-                                <input class="search" type="text" placeholder="  Cerca o inizia una nuova chat">
+                                <input class="search" type="text" v-model="search" placeholder="  Cerca o inizia una nuova chat" @keyup="searchFilter()">
                             </div>
 
                             <!-- contact list -->
                             <div class="contact-list">
-                                <div class="contact" v-for="(contact, index) in contacts" 
-                                :class="{'selected' : index == currentIndex}" 
-                                @click="activeContact(index)"> <!--al click a currentIndex viene assegnato il valore di index
-                                e di conseguenza gli viene applicata la classe selected -->
-                                    <div class="avatar">
-                                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar${contact.avatar}`">
+                                <div v-for="(contact, index) in contacts">
+                                    <div v-show="contact.visible">
+                                        <div class="contact" :class="{'selected' : index == currentIndex}" 
+                                        @click="activeContact(index)"> <!--al click a currentIndex viene assegnato il valore di index
+                                        e di conseguenza gli viene applicata la classe selected --> 
+                                            <div class="avatar">
+                                                <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar${contact.avatar}`">
+                                            </div>
+                                            <div class="contact-name">
+                                                <h4>{{ contact.name }}</h4>
+                                                <span>{{  }}</span>
+                                            </div>
+                                            <div class="last-access">12.00</div>
+                                        </div>
                                     </div>
-                                    <div class="contact-name">
-                                        <h4>{{ contact.name }}</h4>
-                                        <span>{{  }}</span>
-                                    </div>
-                                    <div class="last-access">12.00</div>
                                 </div>
                             </div>
                         </div>
