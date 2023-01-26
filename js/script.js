@@ -103,7 +103,20 @@ createApp({
                                                         message : newMessage,
                                                        status : 'sent'});
             this.newMessage = '';
+            this.receivedMessage();
+        },
+        receivedMessage() {
+            setTimeout(() => {
+                const message = {
+                    date: '10/01/2020 15:50:00',
+                    message: 'ok!',
+                    status: 'received'
+                }
+                this.contacts[this.currentIndex].messages.push(message);
+
+            }, 1000);
         }
     }
 
 }).mount('#app');
+
