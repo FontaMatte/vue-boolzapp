@@ -87,13 +87,23 @@ createApp({
                         }
                     ],
                 },
-            ] 
+            ] ,
+            currentIndex : 0,
+            newMessage : ''
         };
 
     },
 
     methods: {
-
+        activeContact(index) {
+            this.currentIndex = index;
+        },
+        sendMessage(newMessage, currentIndex) {
+            this.contacts[currentIndex].messages.push({date :'10/01/2020 15:50:00',
+                                                        message : newMessage,
+                                                       status : 'sent'});
+            this.newMessage = '';
+        }
     }
 
 }).mount('#app');

@@ -19,18 +19,20 @@
 
                         <!-- left-side of the  APP -->
                         <div class="left-side">
+
                             <!-- user profile -->
                             <div class="user-profile">
                                 <div class="user-photo">
                                     <img src="img/avatar_1.jpg" alt="avatar_1">
                                 </div>
-                                <div class="user-name">Michele</div>
+                                <div class="user-name">Sofia</div>
                                 <div class="user-setting">
                                     <i class="fa-solid fa-circle-notch fa-lg"></i>
                                     <i class="fa-solid fa-message fa-lg"></i>
                                     <i class="fa-solid fa-ellipsis-vertical fa-lg"></i>
                                 </div>
                             </div>
+
                             <!-- notification status -->
                             <div class="notification-status">
                                 <div class="push-notification-icon">
@@ -45,22 +47,27 @@
                                     </span>
                                 </div>
                             </div>
+
                             <!-- contact serach -->
                             <div class="contact-search">
                                 <div class="input-glass">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
-                                <input class="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                                <input class="search" type="text" placeholder="  Cerca o inizia una nuova chat">
                             </div>
+
                             <!-- contact list -->
                             <div class="contact-list">
-                                <div class="contact" v-for="contact in contacts">
+                                <div class="contact" v-for="(contact, index) in contacts" 
+                                :class="{'selected' : index == currentIndex}" 
+                                @click="activeContact(index)"> <!--al click a currentIndex viene assegnato il valore di index
+                                e di conseguenza gli viene applicata la classe selected -->
                                     <div class="avatar">
                                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="`avatar${contact.avatar}`">
                                     </div>
                                     <div class="contact-name">
                                         <h4>{{ contact.name }}</h4>
-                                        <span>Ultimo messaggio inviato</span>
+                                        <span>{{  }}</span>
                                     </div>
                                     <div class="last-access">12.00</div>
                                 </div>
@@ -90,17 +97,10 @@
 
                             <!-- Chat section -->
                             <div class="chat">
-                                <div class="message sent">
-                                    <div class="message-content">Hai portato a spasso il cane?</div>
-                                    <div class="message-time">15:30</div>
-                                </div>
-                                <div class="message sent">
-                                    <div class="message-content">Ricordati di stendere i panni</div>
-                                    <div class="message-time">15:50</div>
-                                </div>
-                                <div class="message received">
-                                    <div class="message-content">Tutto fatto!</div>
-                                    <div class="message-time">16:15</div>
+                                <div class="message" v-for="(message, index) in contacts[currentIndex].messages"
+                                :class="message.status">
+                                    <div class="message-content">{{ message.message }}</div>
+                                    <div class="message-time">{{ message.date }}</div>
                                 </div>
                             </div>
 
@@ -110,10 +110,11 @@
                                     <i class="fa-regular fa-face-smile"></i>
                                 </div>
                                 <div class="message-input">
-                                    <input class="new-message-input" type="text" placeholder="Scrivi un messaggio">
+                                    <input class="new-message-input" v-model="newMessage" type="text" placeholder="  Scrivi un messaggio"
+                                    @keypress.enter="sendMessage(newMessage, currentIndex)">
                                 </div>
                                 <div class="send-message">
-                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <i class="fa-solid fa-paper-plane" @click="sendMessage(newMessage, currentIndex)"></i>
                                 </div>
                             </div>
                         </div>
