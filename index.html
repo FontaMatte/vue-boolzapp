@@ -104,7 +104,7 @@
                                 :class="message.status"
                                 @click="messageOptions(index)">
                                     <div class="message-content">{{ message.message }}</div>
-                                    <div class="message-time">{{ message.date }}</div>
+                                    <div class="message-time">{{ message.date.slice(11,16) }}</div>
                                     <div class="message-option" :class="(currentMessage == index) ? ('option-visible') : ('')"
                                     @click="deleteMessage(index)">
                                         Delete message
