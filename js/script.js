@@ -165,7 +165,7 @@ createApp({
                 newMessage : '', //proprieta' dove salvo il nuovo messaggio da inviare
                 search : '',    //proprieta' dove salvo la ricerca contatto   
                 messageOptionVisible : false ,
-                currentMessage : -1
+                currentMessage : -1,
         }
     },
 
@@ -210,7 +210,15 @@ createApp({
         }, 
         deleteMessage(index){
             this.contacts[this.currentIndex].messages.splice(index, 1);
-        }
+        },
+        lastMessage (contact) {
+            let lastMessageIndex = contact.messages.length - 1;
+            return contact.messages[lastMessageIndex].message;
+        },
+        lastMessageTime (contact) {
+            let lastMessageTimeIndex = contact.messages.length - 1;
+            return contact.messages[lastMessageTimeIndex].date;
+        },
     }
 
 }).mount('#app');

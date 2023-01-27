@@ -68,9 +68,9 @@
                                             </div>
                                             <div class="contact-name">
                                                 <h4>{{ contact.name }}</h4>
-                                                <span>{{ contact.messages[0].message }}</span>
+                                                <span>{{ lastMessage(contact) }}</span>
                                             </div>
-                                            <div class="last-access">12.00</div>
+                                            <div class="last-access">{{ lastMessageTime(contact) }}</div>
                                         </div>
                                     </div>
                                 </div>
