@@ -162,8 +162,10 @@ createApp({
                 },
             ],
                 currentIndex : 0,
-                newMessage : '',
-                search : ''          
+                newMessage : '', //proprieta' dove salvo il nuovo messaggio da inviare
+                search : '',    //proprieta' dove salvo la ricerca contatto   
+                messageOptionVisible : false ,
+                currentMessage : -1
         }
     },
 
@@ -172,7 +174,7 @@ createApp({
             this.currentIndex = index;
         },
         sendMessage(newMessage, currentIndex) {
-            this.contacts[currentIndex].messages.push({date :'10/01/2020 15:50:00',
+            this.contacts[currentIndex].messages.push({date : new Date().toLocaleString(),
                                                         message : newMessage,
                                                        status : 'sent'});
             this.newMessage = '';
@@ -181,7 +183,7 @@ createApp({
         receivedMessage() {
             setTimeout(() => {
                 const message = {
-                    date: '10/01/2020 15:50:00',
+                    date: new Date().toLocaleString(),
                     message: 'ok!',
                     status: 'received'
                 }
@@ -193,10 +195,21 @@ createApp({
             for (let i = 0; i < this.contacts.length; i++) {
                 this.contacts[i].visible = false; 
                 if (this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())) {
-                    console.log('funziona');
                     this.contacts[i].visible = true;
                 }
             }
+        },
+        messageOptions(index) {
+
+            if (this.currentMessage == index) {
+                this.currentMessage = -1;
+            }
+            else {
+                this.currentMessage = index;
+            }
+        }, 
+        deleteMessage(index){
+            this.contacts[this.currentIndex].messages.splice(index, 1);
         }
     }
 

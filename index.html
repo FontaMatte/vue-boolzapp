@@ -68,7 +68,7 @@
                                             </div>
                                             <div class="contact-name">
                                                 <h4>{{ contact.name }}</h4>
-                                                <span>{{  }}</span>
+                                                <span>{{ contact.messages[0].message }}</span>
                                             </div>
                                             <div class="last-access">12.00</div>
                                         </div>
@@ -81,11 +81,11 @@
                         <div class="right-side">
                             <div class="contact-profile">
                                 <div class="active-contact-photo">
-                                    <img src="img/avatar_2.jpg" alt="avatar_2">
+                                    <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="avatar_2">
                                 </div>
                                 <div class="active-contact-info">
                                     <h4>
-                                        Michele
+                                        {{ contacts[currentIndex].name }}
                                     </h4>
                                     <span>
                                         Ultimo aggriornamento alle 12:00
@@ -101,9 +101,14 @@
                             <!-- Chat section -->
                             <div class="chat">
                                 <div class="message" v-for="(message, index) in contacts[currentIndex].messages"
-                                :class="message.status">
+                                :class="message.status"
+                                @click="messageOptions(index)">
                                     <div class="message-content">{{ message.message }}</div>
                                     <div class="message-time">{{ message.date }}</div>
+                                    <div class="message-option" :class="(currentMessage == index) ? ('option-visible') : ('')"
+                                    @click="deleteMessage(index)">
+                                        Delete message
+                                    </div>
                                 </div>
                             </div>
 

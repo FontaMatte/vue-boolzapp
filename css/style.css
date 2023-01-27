@@ -254,6 +254,8 @@ main {
     border-radius: 10px;
     margin-bottom: 10px;
     display: flex;
+    position: relative;
+    cursor: pointer;
 }
 
 .sent {
@@ -290,6 +292,24 @@ main {
     color: gray;
     padding: 3px;
 
+}
+
+.message-option {
+    width: 60%;
+    padding: 10px;
+    position: absolute;
+    top: 70%;
+    right: 5px;
+    background-color: white;
+    z-index: 3;
+    cursor: pointer;
+    font-size: 12px;
+
+    display: none;
+}
+
+.message-option.option-visible {
+    display: block;
 }
 
 
