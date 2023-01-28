@@ -174,11 +174,13 @@ createApp({
             this.currentIndex = index;
         },
         sendMessage(newMessage, currentIndex) {
+            if (newMessage !== '') {
             this.contacts[currentIndex].messages.push({date : new Date().toLocaleString(),
                                                         message : newMessage,
                                                        status : 'sent'});
             this.newMessage = '';
             this.receivedMessage();
+            }
         },
         receivedMessage() {
             setTimeout(() => {
