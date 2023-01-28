@@ -184,7 +184,7 @@ createApp({
             setTimeout(() => {
                 const message = {
                     date: new Date().toLocaleString(),
-                    message: 'ok!',
+                    message: this.randomResponseMessage(),
                     status: 'received'
                 }
                 this.contacts[this.currentIndex].messages.push(message);
@@ -219,6 +219,12 @@ createApp({
             let lastMessageTimeIndex = contact.messages.length - 1;
             return contact.messages[lastMessageTimeIndex].date;
         },
+        // funzione per restituire un messaggio di risposta casuale
+        randomResponseMessage() {
+            const messages = ['ok!','va bene','certo','no,mi dispiace','sicuramente','ti richiamo dopo']
+            const randomMsgIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomMsgIndex]
+        }
     }
 
 }).mount('#app');
